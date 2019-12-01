@@ -1,0 +1,5 @@
+name: 'Views User Field Value'
+type: module
+description: 'Provides a Views user field value contextual filter.'
+core: 8.x
+package: 'Views'
