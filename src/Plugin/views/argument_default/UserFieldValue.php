@@ -129,16 +129,20 @@ class UserFieldValue extends ArgumentDefaultPluginBase implements CacheableDepen
     $uid = $this->user->id();
     $loaded_user = $this->entityTypeManager->getStorage('user')->load($uid);
     if (!empty($loaded_user->get($field_key))) {
-      if (empty($loaded_user->get($field_key)->value)) {
-        $value = $loaded_user->get($field_key)->target_id;
-      }
-      else {
-        $value = $loaded_user->get($field_key)->value;
+      $main_property = $loaded_user->get($field_key)->getItemDefinition()->getMainPropertyName() ?? 'value';
+      $field_values = $loaded_user->get($field_key)->getIterator();
+      $values = [];
+      foreach ($field_values as $key => $field_value) {
+        $values[] = $field_value->{$main_property};
       }
     }
-
-    if (!empty($value)) {
-      return $value;
+    if (!empty($values)) {
+      if ($this->argument->options['break_phrase']) {
+        return implode(',', $values);
+      }
+      else {
+        return $values[0];
+      }
     }
   }
 
