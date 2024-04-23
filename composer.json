@@ -1,0 +1,37 @@
+{
+    "name": "drupal/user_field_value",
+    "type": "drupal-module",
+    "description": "Provides a Views user field value contextual filter.",
+    "keywords": ["drupal", "views", "user", "contextual filter"],
+    "homepage": "https://www.drupal.org/project/user_field_value",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "http://drupal.org/project/issues/user_field_value",
+        "source": "http://cgit.drupalcode.org/user_field_value"
+    },
+    "authors": [
+        {
+            "name": "Taggart Jensen (taggartj)",
+            "homepage": "https://www.drupal.org/u/taggartj",
+            "role": "Maintainer"
+            
+        }
+    ],
+    "prefer-stable": true,
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        }
+    }
+}
