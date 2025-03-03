@@ -1,0 +1,6 @@
+{
+  "name": "drupal/user_field_value",
+  "type": "drupal-module",
+  "keywords": ["Drupal"],
+  "require": { }
+}
